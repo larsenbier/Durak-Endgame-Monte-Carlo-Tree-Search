@@ -12,19 +12,19 @@ One subtlety of applying MCTS to Durak is that the AI does not have access to th
 
 ### POMDP Formulation
 
-We first define our observations. Let $\Omega$ denote the set of possible observations. This set is player-dependent. Given a player $p$, any $o\in\Omega$ is the tuple $(H,B,T)$, where $k$ is knowledge of $p$'s hand, $B$ is a collection of sets of cards known to be in the other players' hands (which we call *hand beliefs*), and $T$ is the set of Cards of which could be in the talon (which we call the *talon belief*). $p$ maintains a hand belief for each other player $q$ in the game, which are initialized as empty sets. Every time $p$ observes $q$ picking up a card (in a situation where the suit and rank are visible to all players), it adds that card to its hand belief for $q$. Likewise, every time $p$ observes $q$ playing a card, it removes that card from its hand belief for $q$. This way, $p$'s hand belief for $q$ contains all the cards known to be in $q's$ hand. $p$ also maintains a talon belief, which is initialized as $C$, the set of cards in the game, then updated every time $p$ observes a card being played or added to someone's hand. Importantly, all of this is information available to a human player unable to observe the true game state.
+To formulate our POMDP, we will begin with defining our observations. Let $\Omega$ denote the set of possible observations. This set is player-dependent. Given a player $p$, any $o\in\Omega$ is the tuple $(H,B,T)$, where $k$ is knowledge of $p$'s hand, $B$ is a collection of sets of cards known to be in the other players' hands (which we call *hand beliefs*), and $T$ is the set of Cards of which could be in the talon (which we call the *talon belief*). $p$ maintains a hand belief for each other player $q$ in the game, which are initialized as empty sets. Every time $p$ observes $q$ picking up a card (in a situation where the suit and rank are visible to all players), it adds that card to its hand belief for $q$. Likewise, every time $p$ observes $q$ playing a card, it removes that card from its hand belief for $q$. This way, $p$'s hand belief for $q$ contains all the cards known to be in $q's$ hand. $p$ also maintains a talon belief, which is initialized as $C$, the set of cards in the game, then updated every time $p$ observes a card being played or added to someone's hand. Importantly, all of this is information available to a human player unable to observe the true game state.
 
 The game state is much simpler to define. We let $\Sigma$ denote the set of possible states. This is simply the set of all possible hands, talons, and discard piles over some set of cards $C$. 
 
-From there, we can define our sensor model: for $o\in\Omega$ and $s\in\Sigma$, $\mathbf{P}(o|s)$ is the probability of $o$ given $s$. In practice, to sample from $\mathbf{P}(\Omega|s)$ from $p$'s perspective, we perform the following actions:
+The sensor model $\mathbf{P}(o|s)$ is 1 at the unique observation corresponding to s, and zero everywhere else. The prior distribution, as it turns out, is also quite simple. The main contribution of this implementation is sampling a state from the prior distribution $\mathbf{P}(s|o)$, then running MCTS on this state, avoiding performing MCTS on the belief states themselves. To sample a state, we can use the following algorithm:
 ```text
+Given some observation o = (H,B,T):
 1. Copy p's hand.
 2. Shuffle the talon belief randomly (since we do not know the true order of the possible cards in the talon).
 3. For each other player q, we copy p's hand beliefs, then sample from the shuffled talon belief to fill their hands.
 4. Finally, since there are only $n$ cards in the talon but m >= n cards in the talon belief, we take the first n cards from the shuffled talon.
 ```
-
-Because of the fact that all talon orderings are equally likely when the game is dealt, $\mathbf{P}(\Omega|s)$ is uniform over its support. Thus, this procedure correctly samples from $\mathbf{P}(\Omega|s)$.
+Because of the fact that all talon orderings are equally likely when the game is dealt, $\mathbf{P}(s|o)$ is uniform over its support. Thus, this procedure correctly samples from $\mathbf{P}(s|o)$. 
 
 
 
