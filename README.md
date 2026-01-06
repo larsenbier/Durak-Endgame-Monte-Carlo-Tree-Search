@@ -11,6 +11,9 @@ Here, we use the rules for the popular variant of Durak known as "Perevodnoy Dur
 One subtlety of applying MCTS to Durak is that the AI does not have access to the complete game state. We can circumvent this difficulty by modeling Durak as a partially observable Markov decision process (POMDP). In a POMDP, the system dynamics are the same as a fully observable Markov decision process, however the agent cannot observe the underlying state. Instead, it maintains a probability distribution of observations given the underlying state.
 
 ### Notation
-We will let $\Omega$ denote the set of possible observations, and $\Sigma$ the set of possible states. Thus, for $o\in\Omega$ and $s\in\Sigma$, $\mathbf{P}(o|s)$, is the probability distribution of $\Omega$ given $s$.
+* $\Omega$ := the set of possible observations
+* $\Sigma$ := the set of possible states.
+* For $o\in\Omega$ and $s\in\Sigma$, $\mathbf{P}(o|s)$ is the probability distribution of $\Omega$ given $s$.
+* $A_{s}$ := the set of available actions in state $s$, or just $A$ when the state is clear.
 
 
