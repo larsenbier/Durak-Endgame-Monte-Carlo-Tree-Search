@@ -29,7 +29,7 @@ Because of the fact that all talon orderings are equally likely when the game is
 
 ## The AI
 
-The AI can be broken into two phases: the earlygame and the endgame. The endgame is a simple threshold on the number of cards in the talon (chosen to be 4 in our implementation). Once the talon length drops below this threshold, we activate MCTS to play out the remainder of the game.
+The AI can be broken into two decision-making phases: the earlygame and the endgame. The endgame is a simple threshold on the number of cards in the talon (chosen to be 4 in our implementation). Once the talon length drops below this threshold, we activate MCTS to play out the remainder of the game.
 
 ### Earlygame:
 
