@@ -2,7 +2,7 @@
 
 The Durak Engame Monte Carlo Tree Search (Durak MCTS) repository contains a Monte Carlo Tree Search (MCTS) based AI for playing Durak, implemented in Python.
 
-The code provided can be run through `main.py` to play against the AI yourself. The parameters of the AI can be directly modified in the source code to alter the runtime for performance (as detailed below).
+The code provided can be run through `main.py` to play against the AI yourself. The parameters of the AI can be directly modified in the source code, as detailed in "Configuration". An executable file (`durakMCTS.exe`) built from `main.py` through PyInstaller is also provided for those who do not wish to run their own python environment.
 
 ![Example of playing through `main.py`](playing.png)
 
@@ -105,7 +105,7 @@ A graph of the results indicates that within the range of 1000 playouts, 200-500
 
 From the graph, it is clear that the Pure MCTS is an improvement over the heuristic. Pure MCTS trounces the random agent (the heuristic only beats the random agent 15% of the time, versus the pure MCTS beating it almost every time) and defeats the heuristic agent a large percentage of the time (around 70% of the time on average), which is already a good improvement. The best performing agent is the hybrid agent, which defeats the heuristic agent 85-90% of the time within this range of playouts. The hybrid also beat me, an experienced human player, in a large fraction of the games I played. The hybrid was not tested against the random agent, since the Pure MCTS agent already played nearly perfectly against a random agent. The data suggest that the best strategy is one that uses a heuristic for early play and MCTS for the endgame. A more efficient implementation that allows for most playouts might change this conclusion, as might an observation model that tracks more information to improve the sampling from $\mathbf{P}(s|o)$.
 
-## Adjusting the AI
+## Configuration
 
 Simple parameters can be changed in the "Global Variables" section of `main.py` and `durak.py`. 
 
