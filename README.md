@@ -26,14 +26,6 @@ From there, we can define our sensor model: for $o\in\Omega$ and $s\in\Sigma$, $
 
 Because of the fact that all cards are talon orderings are equally likely when the game is dealt, $\mathbf{P}(\Omega|s)$ is uniform over its support. Thus, this procedure correctly samples from $\mathbf{P}(\Omega|s)$
 
- 
-
-We let $A_{s}$ denote the set of available actions in state $s$, or just $A$ when the state is clear. The available actions are specified in the rules for Perevodnoy Durak linked in the first paragraph.
-
-
-
-### Computing $\mathbf{P}(o|s)$
-
 
 
 
