@@ -27,6 +27,25 @@ Given some observation o = (H,B,T):
 Because of the fact that all talon orderings are equally likely when the game is dealt, $\mathbf{P}(s|o)$ is uniform over its support. Thus, this procedure correctly samples from $\mathbf{P}(s|o)$. 
 
 
+## The AI
+
+The AI can be broken into two phases: the earlygame and the endgame. The endgame is a simple threshold on the number of cards in the talon (chosen to be 4 in our implementation). Once the talon length drops below this threshold, we activate MCTS to play out the remainder of the game.
+
+### Earlygame:
+
+In the earlygame, the AI uses a simple hand-coded heuristic to play, whose logic is in `player.chooseActionHeuristic` in the `durak.py` module. We empirically found that using this strategy in the earlygame produced more wins. In the earlygame, observations correspond to many possible belief states and $\mathbf{P}(s|o)$ has high variance, which makes our sampling less representative of the true problem. Furthermore, this heuristic is much cheaper to compute than the MCTS action, which enables faster testing and faster playout during the early game when MCTS is not as effective.
+
+### Endgame:
+
+In the endgame, our sampling algorithm is able to take full advantage of the information gathered throughout the earlygame and stored in the hand beliefs and talon belief. This makes the samples have less variance, which makes MCTS viable as a way to play out the end game. The horizon on the decisions is generally much smaller compared to the earlygame, which is advantageous for MCTS.
+
+As for the search itself: after sampling, we use a standard MCTS algorithm with the upper confidence bound applied to trees to select nodes for expansion. The playouts are performed using the heuristic from the earlygame, which empirically boosted performance against a random agent compared to using random playouts.
+
+
+
+
+
+
 
 
 
