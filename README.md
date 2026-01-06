@@ -104,3 +104,13 @@ A graph of the results indicates that within the range of 1000 playouts, 200-500
 ![Graph of the results of `test.py`](result.png) 
 
 From the graph, it is clear that the Pure MCTS is an improvement over the heuristic. Pure MCTS trounces the random agent (the heuristic only beats the random agent 15% of the time, versus the pure MCTS beating it almost every time) and defeats the heuristic agent a large percentage of the time (around 70% of the time on average), which is already a good improvement. The best performing agent is the hybrid agent, which defeats the heuristic agent 85-90% of the time within this range of playouts. The hybrid also beat me, an experienced human player, in a large fraction of the games I played. The hybrid was not tested against the random agent, since the Pure MCTS agent already played nearly perfectly against a random agent. The data suggest that the best strategy is one that uses a heuristic for early play and MCTS for the endgame. A more efficient implementation that allows for most playouts might change this conclusion, as might an observation model that tracks more information to improve the sampling from $\mathbf{P}(s|o)$.
+
+## Adjusting the AI
+
+Simple parameters can be changed in the "Global Variables" section of `main.py` and `durak.py`. 
+
+In `durak.py`, the most relevant global variables are `SUITS`, `RANKS`, and `HAND_SIZE`, which control the number of suits in the game, the number of ranks in the game, and the minimum number of cards in each player's hand. Beyond that, `OMNISCIENT_GAME` controls whether the human player gets to see the other players' cards in their hand (False by default).
+
+In `main.py`, the global variables control the number of players in the game, the number of human palyers, and the number of playouts performed during MCTS. A human must control every human in the game, so if there is more than 1 human in a game of durak, they must input action choices for each human in the game.
+
+Further modifications, like changing the method of simulating playouts or altering heuristics, must be made by modifying existing functions.
