@@ -24,7 +24,9 @@ From there, we can define our sensor model: for $o\in\Omega$ and $s\in\Sigma$, $
 4. Finally, since there are only $n$ cards in the talon but m >= n cards in the talon belief, we take the first n cards from the shuffled talon.
 ```
 
-Because of the fact that all cards are talon orderings are equally likely when the game is dealt, $\mathbf{P}(\Omega|s)$ is uniform over its support. Thus, this procedure correctly samples from $\mathbf{P}(\Omega|s)$
+Because of the fact that all talon orderings are equally likely when the game is dealt, $\mathbf{P}(\Omega|s)$ is uniform over its support. Thus, this procedure correctly samples from $\mathbf{P}(\Omega|s)$.
+
+
 
 
 
