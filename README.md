@@ -17,7 +17,7 @@ We first define our observations. Let $\Omega$ denote the set of possible observ
 The game state is much simpler to define. We let $\Sigma$ denote the set of possible states. This is simply the set of all possible hands, talons, and discard piles over some set of cards $C$. 
 
 From there, we can define our sensor model: for $o\in\Omega$ and $s\in\Sigma$, $\mathbf{P}(o|s)$ is the probability distribution of $\Omega$ given $s$. In practice, to sample from $\mathbf{P}(o|s)$ from $p$'s perspective, we perform the following actions:
-```pseudo
+```text
 1. Copy $p$'s hand.
 2. Shuffle the talon belief randomly (since we do not know the true order of the possible cards in the talon).
 3. For each other player $q$, we copy $p$'s hand beliefs, then sample from the shuffled talon belief to fill their hands.
