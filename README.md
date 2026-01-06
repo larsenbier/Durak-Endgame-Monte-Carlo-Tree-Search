@@ -18,10 +18,10 @@ The game state is much simpler to define. We let $\Sigma$ denote the set of poss
 
 From there, we can define our sensor model: for $o\in\Omega$ and $s\in\Sigma$, $\mathbf{P}(o|s)$ is the probability distribution of $\Omega$ given $s$. In practice, to sample from $\mathbf{P}(o|s)$ from $p$'s perspective, we perform the following actions:
 ```text
-1. Copy $p$'s hand.
+1. Copy p's hand.
 2. Shuffle the talon belief randomly (since we do not know the true order of the possible cards in the talon).
-3. For each other player $q$, we copy $p$'s hand beliefs, then sample from the shuffled talon belief to fill their hands.
-4. Finally, since there are only $n$ cards in the talon but $m >= n$ cards in the talon belief, we take the first $n$ cards from the shuffled talon.
+3. For each other player q, we copy p's hand beliefs, then sample from the shuffled talon belief to fill their hands.
+4. Finally, since there are only $n$ cards in the talon but m >= n cards in the talon belief, we take the first n cards from the shuffled talon.
 ```
 
 This procedure generates a sample from $\mathbf{P}(o|s)$. This is because of the assumption that all cards are equally likely to occur, so $\mathbf{P}(o|s)$ is uniform over its support.
