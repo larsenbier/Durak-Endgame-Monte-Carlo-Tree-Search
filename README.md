@@ -99,7 +99,7 @@ The "MCTS" agent refers to an agent using MCTS to make every decision during the
 </tbody>
 </table>
 
-A graph of the results indicates that within the range of 1000 playouts, 200-500 is sufficient to achieve most of the performance possible within the 1000 playout limit. It is important to remember that these data were gathered over only 100 games at each playout value, so there will be some variance due to the randomness of the game and search.
+A graph of the results indicates that within the range of 1000 playouts, 200-500 is sufficient to achieve most of the performance possible within the 1000 playout limit. It is important to remember that these data were gathered over only 100 games at each playout value, so there will be some variance due to the randomness of the game and search (for example, at 10 playouts the Pure MCTS seems to be much better than at higher playouts, although MCTS should improve overall with additional playouts).
 
 ![Graph of the results of `test.py`](result.png) 
 
