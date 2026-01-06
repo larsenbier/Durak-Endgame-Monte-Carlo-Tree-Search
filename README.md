@@ -43,7 +43,7 @@ As for the search itself: after sampling, we use a standard MCTS algorithm with 
 
 To evaluate the performance of the Durak MCTS agent, we simulated it playing against a handful of other agents. We refer to the other agents as the "random" agent and the "heuristic" agent. The random agent chooses an available action at random with a uniform distribution over the possible actions. The heuristic player selects an action according to `player.lowestValueAction`. MCTS uses `player.chooseActionHeurisic` to select actions during the playouts, which operates very similarly to `player.lowestValueAction` but has some additional logic that promotes behavior to hoard trump cards early game.
 
-The results of simulating games with a different number of MCTS playouts are tabulated below. The win rate represents the fraction of the time that the first player beat the second player.
+The results of simulating games with a different number of MCTS playouts are tabulated below. The win rate represents the fraction of the time that the first player beat the second player. Each win rate was calculated over 100 games.
 
 <table><thead>
   <tr>
