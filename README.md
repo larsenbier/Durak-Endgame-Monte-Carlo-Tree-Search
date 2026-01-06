@@ -40,17 +40,73 @@ In the endgame, our sampling algorithm is able to take full advantage of the inf
 As for the search itself: after sampling, we use a standard MCTS algorithm with the upper confidence bound applied to trees to select nodes for expansion. The playouts are performed using the heuristic from the earlygame, which empirically boosted performance against a random agent compared to using random playouts.
 
 ## Results
-<table>
-|          	|                                   Win Rate of First Agent                 	                          	|
-|----------	|-------------------------	|---------------------	|-----------------------	|-------------------------	|
-| Playouts 	| Random v Heuristic      	| Pure MCTS  v Random 	| Pure MCTS v Heuristic 	| Hybrid MCTS v Heuristic 	|
-| 10       	| 0.15                    	| 0.87                	| 0.85                  	| 0.6                     	|
-| 100      	| -                       	| 0.99                	| 0.67                  	| 0.89                    	|
-| 200      	| -                       	| 1.0                 	| 0.71                  	| 0.88                    	|
-| 500      	| -                       	| 1.0                 	| 0.65                  	| 0.89                    	|
-| 700      	| -                       	| 0.99                	| 0.7                   	| 0.9                     	|
-| 1000     	| -                       	| 1.0                 	| 0.73                  	| 0.86                    	|
-</table>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky">Win Rate of First Agent</th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Playouts</td>
+    <td class="tg-0pky">Random v<br>Heuristic</td>
+    <td class="tg-0pky">Pure MCTS <br>v Random</td>
+    <td class="tg-0pky">Pure MCTS<br>v Heuristic</td>
+    <td class="tg-0pky">Hybrid MCTS<br>v Heuristic</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">10</td>
+    <td class="tg-0pky">0.15</td>
+    <td class="tg-0pky">0.87</td>
+    <td class="tg-0pky">0.85</td>
+    <td class="tg-0pky">0.6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">100</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">0.99</td>
+    <td class="tg-0pky">0.67</td>
+    <td class="tg-0pky">0.89</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">200<br></td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">1.0</td>
+    <td class="tg-0pky">0.71</td>
+    <td class="tg-0pky">0.88</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">500</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">1.0</td>
+    <td class="tg-0pky">0.65</td>
+    <td class="tg-0pky">0.89</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">700</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">0.99</td>
+    <td class="tg-0pky">0.7</td>
+    <td class="tg-0pky">0.9</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">1000</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">1.0</td>
+    <td class="tg-0pky">0.73</td>
+    <td class="tg-0pky">0.86</td>
+  </tr>
+</tbody></table>
 
 
 
