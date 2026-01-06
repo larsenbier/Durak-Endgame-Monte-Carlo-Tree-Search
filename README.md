@@ -39,7 +39,9 @@ In the endgame, our sampling algorithm is able to take full advantage of the inf
 
 As for the search itself: after sampling, we use a standard MCTS algorithm with the upper confidence bound applied to trees to select nodes for expansion. The playouts are performed using the heuristic from the earlygame, which empirically boosted performance against a random agent compared to using random playouts.
 
+## Results
 
+BELOW THERE WILL BE A WRITEUP OF THE DATA I COLLECTED...
 
 
 
