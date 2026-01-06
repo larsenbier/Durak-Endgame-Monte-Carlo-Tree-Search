@@ -2,7 +2,7 @@
 
 The Durak Engame Monte Carlo Tree Search (Durak MCTS) repository contains a Monte Carlo Tree Search (MCTS) based AI for playing Durak, implemented in Python.
 
-The code provided can be run through `main.py` to play against the AI yourself. The paramters of the AI can be directly modified in the source code to alter the runtime for performance (as detailed below).
+The code provided can be run through `main.py` to play against the AI yourself. The parameters of the AI can be directly modified in the source code to alter the runtime for performance (as detailed below).
 ![Example of playing through `main.py`](playing.png)
 
 
@@ -41,8 +41,15 @@ As for the search itself: after sampling, we use a standard MCTS algorithm with 
 
 ## Results
 
-BELOW THERE WILL BE A WRITEUP OF THE DATA I COLLECTED...
-
+|          	|                                   Win Rate of First Agent                 	                          	|
+|----------	|-------------------------	|---------------------	|-----------------------	|-------------------------	|
+| Playouts 	| Random v Heuristic      	| Pure MCTS  v Random 	| Pure MCTS v Heuristic 	| Hybrid MCTS v Heuristic 	|
+| 10       	| 0.15                    	| 0.87                	| 0.85                  	| 0.6                     	|
+| 100      	| -                       	| 0.99                	| 0.67                  	| 0.89                    	|
+| 200      	| -                       	| 1.0                 	| 0.71                  	| 0.88                    	|
+| 500      	| -                       	| 1.0                 	| 0.65                  	| 0.89                    	|
+| 700      	| -                       	| 0.99                	| 0.7                   	| 0.9                     	|
+| 1000     	| -                       	| 1.0                 	| 0.73                  	| 0.86                    	|
 
 
 
