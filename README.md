@@ -31,7 +31,7 @@ Because of the fact that all talon orderings are equally likely when the game is
 
 ## The AI
 
-The AI can be broken into two decision-making phases: the earlygame and the endgame. The endgame is a simple threshold on the number of cards in the talon (chosen to be 4 in our implementation). Once the talon length drops below this threshold, we activate MCTS to play out the remainder of the game.
+The AI can be broken into two decision-making phases: the earlygame and the endgame. The difference bwteen earlygame and endgame is a simple threshold on the number of cards in the talon (chosen to be 4 in our implementation). Once the talon length drops below this threshold, we enter the endgame and activate MCTS to play out the remainder of the game.
 
 In the earlygame, the AI uses a simple hand-coded heuristic to play, whose logic is in `player.chooseActionHeuristic` in the `durak.py` module. We empirically found that using this strategy in the earlygame produced more wins. In the earlygame, observations correspond to many possible belief states and $\mathbf{P}(s|o)$ has high variance, which makes our sampling less representative of the true problem. Furthermore, this heuristic is much cheaper to compute than the MCTS action, which enables faster testing and faster playout during the early game when MCTS is not as effective.
 
