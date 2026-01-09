@@ -111,6 +111,6 @@ Simple parameters can be changed in the "Global Variables" section of `main.py` 
 
 In `durak.py`, the most relevant global variables are `SUITS`, `RANKS`, and `HAND_SIZE`, which control the number of suits in the game, the number of ranks in the game, and the minimum number of cards in each player's hand. Beyond that, `OMNISCIENT_GAME` controls whether the human player gets to see the other players' cards in their hand (False by default).
 
-In `main.py`, the global variables control the number of players in the game, the number of human palyers, and the number of playouts performed during MCTS. A human must control every human in the game, so if there is more than 1 human in a game of durak, they must input action choices for each human in the game.
+In `main.py`, the only modifiable values are the number of playouts performed during MCTS and the number of humans in the game. The game only supports 2 players at the moment, but by changing the value of `NUMBER_OF_HUMANS`, you can make games with 0, 1, or 2 humans players. A human must control every human in the game, so if there is more than 1 human in a game of durak, they must input action choices for each human in the game.
 
 Further modifications, like changing the method of simulating playouts or altering heuristics, must be made by modifying existing functions.
