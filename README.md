@@ -6,7 +6,7 @@ The code provided can be run through `main.py` to play against the AI yourself. 
 
 ![Example of playing through `main.py`](playing.png)
 
-Here, we use the rules for the popular variant of Durak known as "Perevodnoy Durak" (Transfer Durak). More information on the rules can be found [here](https://www.pagat.com/beating/perevodnoy_durak.html). It  can be played with two or more players, with the implementation supporting as many human players as desired.
+Here, we use the rules for the popular variant of Durak known as "Perevodnoy Durak" (Transfer Durak). More information on the rules can be found [here](https://www.pagat.com/beating/perevodnoy_durak.html). The implementation only supports 2 player games as a proof of concept, however the code is structured in a way that could permit >2 players with some modifications.
 
 ## Durak as a Search Problem
 
